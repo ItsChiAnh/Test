@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="triangleInput" placeholder="Enter a number (1-10)">
+    <button onclick="displayTriangle(parseInt(document.getElementById('triangleInput').value))">Generate Triangle</button>
+
+<div id="triangle-container"></div>
+
+<script>
+    function createTriangle(n) {
+        if (n < 1 || n > 10) {
+            throw new Error("n must be an integer between 1 and 10");
+        }
+
+        const triangleElement = document.createElement("div");
+
+        for (let i = 1; i <= n; i++) {
+            const rowElement = document.createElement("div");
+
+            for (let j = 1; j <= i; j++) {
+                const tamGiacElement = document.createElement("span");
+
+                tamGiacElement.textContent = "*";
+
+                rowElement.appendChild(tamGiacElement);
+            }
+
+            triangleElement.appendChild(rowElement);
+        }
+
+        return triangleElement;
+    }
+
+    function displayTriangle(n) {
+        const containerElement = document.getElementById("triangle-container");
+        containerElement.innerHTML = "";
+
+        const triangleElement = createTriangle(n);
+        containerElement.appendChild(triangleElement);
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="lowerBound" placeholder="a">
+    <input type="number" id="upperBound" placeholder="b">
+    <button type="button" onclick="calculateTotalPrimeNumbers()">Calculate</button>
+    <div id="result"></div>
+  <script>
+<!--mình quen dùng tiếng anh nên là mình sẽ viết tiếng anh trong code của mình-->
+      function calculateTotalPrimeNumbers() {
+          const lowerBound = parseInt(document.getElementById("lowerBound").value);
+          const upperBound = parseInt(document.getElementById("upperBound").value);
+
+          if (lowerBound > upperBound) {
+              throw new Error("a must be lower than b");
+          }
+
+          const primeNumbers = [];
+          let primeSum = 0;
+
+          for (let i = lowerBound; i <= upperBound; i++) {
+              if (isPrime(i)) {
+                  primeNumbers.push(i);
+                  primeSum += i;
+              }
+          }
+
+          document.getElementById("result").innerHTML = "";
+          document.getElementById("result").innerHTML += `Total Prime Numbers: ${primeNumbers.length}<br>`;
+          document.getElementById("result").innerHTML += `Prime Sum: ${primeSum}<br>`;
+          document.getElementById("result").innerHTML += `Prime Numbers: ${primeNumbers.join(", ")}`;
+
+      }
+
+      function isPrime(number) {
+          if (number <= 1) {
+              return false;
+          }
+
+          for (let i = 2; i <= Math.sqrt(number); i++) {
+              if (number % i === 0) {
+                  return false;
+              }
+          }
+
+          return true;
+
+      }
+
+
+  </script>
+</body>
+</html>

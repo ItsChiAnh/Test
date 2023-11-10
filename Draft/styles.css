@@ -1,0 +1,13 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: #E6EAF8;
+}
+.menu-list:hover {
+	background-color: #9a9aec;
+	border-radius: 5px;
+}
